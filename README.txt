@@ -1,6 +1,5 @@
 lative emacs customization
-
-- fosusing on usability of EMACS for programming
+- make emacs easier to use
 
 INSTALL:
 
