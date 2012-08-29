@@ -580,8 +580,8 @@ F2       Make or compile                      C-k       Line erase
 F3       Debug
 F4       Print value of variable              Window Operations
 F5       Continue running                     -----------------
-F6       Finish current function              M-[     Select buffer (try e,s,f)
-F7       Next                                 M-`
+F6       Finish current function              M-`     Select buffer (try e,s,f)
+F7       Next                                 
 F8       Step                                 M-e     Split current window
 F9       Set breakpoint                       M-w     Maximize current window
 F10      Remove breakpoint                    M-q     Close current window
@@ -694,7 +694,7 @@ Finally, you can use F1 F2 to lookup original help-for-help of Emacs :)
 ;;;;;;;;;;;;;;;;;;;;;;
 ; use M-[ & M-` to select buffer under the same window
 ; not the same as that C-x C-b opens a new window to show buffer list
-(global-set-key [?\M-\[] 'buffer-menu)
+; (global-set-key [?\M-\[] 'buffer-menu)
 (global-set-key [?\M-`] 'buffer-menu)
 (global-set-key [?\C-`] 'tmm-menubar)
 
