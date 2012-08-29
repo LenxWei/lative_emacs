@@ -58,6 +58,19 @@
 (line-number-mode t)
 (column-number-mode t)
 
+; folding support
+    (load-library "hideshow")
+    (add-hook 'c-mode-common-hook   'hs-minor-mode)
+    (add-hook 'emacs-lisp-mode-hook 'hs-minor-mode)
+    (add-hook 'java-mode-hook       'hs-minor-mode)
+    (add-hook 'lisp-mode-hook       'hs-minor-mode)
+    (add-hook 'perl-mode-hook       'hs-minor-mode)
+    (add-hook 'python-mode-hook     'hs-minor-mode)
+    (add-hook 'sh-mode-hook         'hs-minor-mode)
+    (add-hook 'c++-mode-hook 'hs-minor-mode)
+    (setq-default hs-hide-comments-when-hiding-all t)
+
+
 ;;;;;;;;;;;;;;;;;;;
 ;;;  todo list  ;;;
 ;;;;;;;;;;;;;;;;;;;
@@ -150,6 +163,7 @@
 ;
 ; v 1.3.3
 ;   * remove svn/template support
+;   * add folding support
 ;
 ; v 1.3.2
 ;   * add mouse-wheel-mode, for cygwinX
@@ -493,10 +507,11 @@
 (defun lenx_backspace ()
     "delete char function by lenx :)"
     (interactive)
-    (condition-case nil
-       (kill-region (region-beginning) (region-end))
-       (error (backward-delete-char 1) )
-    )
+;    (condition-case nil
+;       (kill-region (region-beginning) (region-end))
+;       (error (backward-delete-char 1) )
+;   )
+    (backward-delete-char 1)
 )
 
 (defun lenx_findtag ()
@@ -589,6 +604,12 @@ F11      Set temp breakpoint                  M-o     Switch to next window
 F12      Stepi                                C-Tab   Switch to next buffer
 M-F12    Nexti in gdb mode                    C-M-Tab Switch to previous buffer
 
+Folding Operations
+------------------
+C-c h    toggle folding
+C-c H    hide all blocks
+C-c S    show all blocks
+
 Finally, you can use F1 F2 to lookup original help-for-help of Emacs :)
 "
  help-map)
@@ -597,6 +618,12 @@ Finally, you can use F1 F2 to lookup original help-for-help of Emacs :)
 ;;;  set keys  ;;;
 ;;;;;;;;;;;;;;;;;;
 ; [:_lative_Anchor_5_:]
+
+; folding
+(global-set-key "\C-c\ h" 'hs-toggle-hiding)
+(global-set-key "\C-c\ H" 'hs-hide-all)
+(global-set-key "\C-c\ S" 'hs-show-all)
+;(global-set-key "\C-\\" 'toggle-selective-display)
 
 ; using M-m to toggle font lock mode
 (global-set-key [?\M-m] 'font-lock-mode)
@@ -787,7 +814,7 @@ Finally, you can use F1 F2 to lookup original help-for-help of Emacs :)
                 ;'(c-basic-offset 4)
             ;)
 	    (setq
-	        indent-tabs-mode nil
+            	indent-tabs-mode nil
 		c-basic-offset 4
 	    )
 	    (local-set-key [f3] 'gdb)

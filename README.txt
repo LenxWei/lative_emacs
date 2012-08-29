@@ -52,5 +52,11 @@ F10      Remove breakpoint                    M-q     Close current window
 F11      Set temp breakpoint                  M-o     Switch to next window                                           
 F12      Stepi                                C-Tab   Switch to next buffer        
 M-F12    Nexti in gdb mode                    C-M-Tab Switch to previous buffer                                       
+
+Folding Operations
+------------------
+C-c h    toggle folding
+C-c H    hide all blocks
+C-c S    show all blocks
                                                                                                                       
 Finally, you can use F1 F2 to lookup original help-for-help of Emacs :)       
