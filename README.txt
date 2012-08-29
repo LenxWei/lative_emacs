@@ -1,3 +1,7 @@
+lative emacs customization
+
+- fosusing on usability of EMACS for programming
+
 INSTALL:
 
 * copy lative.el as ~/.emacs
