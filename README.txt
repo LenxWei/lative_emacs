@@ -5,7 +5,7 @@ INSTALL:
 
 * copy lative.el as ~/.emacs
 * edit ~/.emacs to adjust some options in the first section
-* open emacs, and press F1 F1 to look up the help screen
+* open emacs, and press F1 F1 or ESC 1 to look up the help screen
 
 Basic Operations:                             Cursor Operations                                                       
 ----------------                              -----------------                                                       
