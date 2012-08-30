@@ -59,17 +59,15 @@
 (column-number-mode t)
 
 ; folding support
-    (load-library "hideshow")
-    (add-hook 'c-mode-common-hook   'hs-minor-mode)
-    (add-hook 'emacs-lisp-mode-hook 'hs-minor-mode)
-    (add-hook 'java-mode-hook       'hs-minor-mode)
-    (add-hook 'lisp-mode-hook       'hs-minor-mode)
-    (add-hook 'perl-mode-hook       'hs-minor-mode)
-    (add-hook 'python-mode-hook     'hs-minor-mode)
-    (add-hook 'sh-mode-hook         'hs-minor-mode)
-    (add-hook 'c++-mode-hook 'hs-minor-mode)
-    (setq-default hs-hide-comments-when-hiding-all t)
-
+(load-library "hideshow")
+(add-hook 'c-mode-common-hook   'hs-minor-mode)
+(add-hook 'emacs-lisp-mode-hook 'hs-minor-mode)
+(add-hook 'java-mode-hook       'hs-minor-mode)
+(add-hook 'lisp-mode-hook       'hs-minor-mode)
+(add-hook 'perl-mode-hook       'hs-minor-mode)
+(add-hook 'python-mode-hook     'hs-minor-mode)
+(add-hook 'sh-mode-hook         'hs-minor-mode)
+(setq-default hs-hide-comments-when-hiding-all t)
 
 ;;;;;;;;;;;;;;;;;;;
 ;;;  todo list  ;;;
