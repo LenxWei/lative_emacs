@@ -164,6 +164,7 @@
 ; v 1.3.3
 ;   * remove svn/template support
 ;   * add folding support
+;   * adjust delete word
 ;
 ; v 1.3.2
 ;   * add mouse-wheel-mode, for cygwinX
@@ -462,25 +463,29 @@
   )
 )
 
+; there are three kinds of char: word[0-9a-zA-Z_], space( \t\n\r), punctuation
+; delete to the end of current kinds of char
+(defun lenx_forward_delete ()
+   (interactive)
+  (if (re-search-forward "[0-9a-zA-Z_]+\\|[ \t\n\r]+\\|[^ \t\n\r0-9a-zA-Z]+" nil t 1)
+      t
+    nil
+  )
+)
+
 (defun lenx_delete ()
     "delete function by lenx :)"
     (interactive)
-    (condition-case nil
+    (if (use-region-p)
        (kill-region (region-beginning) (region-end))
-       (error
-	;(kill-region (point) (progn (lenx_forward_word) (point)))
-	(kill-word 1)
-       )
+       (kill-region (point) (progn (lenx_forward_delete) (point)))
     )
 )
 
 (defun lenx_delete_char ()
     "delete char function by lenx :)"
     (interactive)
-    (condition-case nil
-       (kill-region (region-beginning) (region-end))
-       (error (delete-char 1) )
-    )
+    (delete-char 1)
 )
 
 (defun lenx_delete_window ()
